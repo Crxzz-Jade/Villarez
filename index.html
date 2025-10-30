@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Random HTML Design</title>
+  <title>Jade Villarez | Profile Card</title>
   <style>
-    /* Reset and Base Styles */
+    /* Base Styles */
     * {
       margin: 0;
       padding: 0;
@@ -14,109 +14,133 @@
     }
 
     body {
-      height: 100vh;
-      background: linear-gradient(135deg, #7f00ff, #e100ff);
+      min-height: 100vh;
+      background: linear-gradient(135deg, #1b1b1b, #333);
       display: flex;
       justify-content: center;
       align-items: center;
-      overflow: hidden;
-      color: white;
+      color: #f5f5f5;
     }
 
-    .glass-card {
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 20px;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    .profile-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 15px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
       backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      width: 350px;
-      padding: 2rem;
-      text-align: center;
-      animation: float 4s ease-in-out infinite;
+      width: 360px;
+      overflow: hidden;
+      transition: 0.3s ease;
     }
 
-    @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-10px); }
+    .profile-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 40px rgba(255, 255, 255, 0.1);
     }
 
-    .avatar {
+    .profile-header {
+      background: linear-gradient(135deg, #444, #666);
+      height: 100px;
+    }
+
+    .profile-image {
       width: 100px;
       height: 100px;
       border-radius: 50%;
-      border: 3px solid rgba(255, 255, 255, 0.6);
-      margin-bottom: 1rem;
+      border: 3px solid rgba(255, 255, 255, 0.4);
       object-fit: cover;
+      margin: -50px auto 10px;
+      display: block;
+      filter: grayscale(100%);
     }
 
-    h1 {
-      font-size: 1.8rem;
-      margin-bottom: 0.5rem;
+    .profile-content {
+      text-align: center;
+      padding: 1.2rem;
     }
 
-    p {
-      font-size: 1rem;
-      opacity: 0.8;
+    .profile-content h1 {
+      font-size: 1.6rem;
+      color: #fff;
+    }
+
+    .profile-content p {
+      font-size: 0.95rem;
+      color: #cfcfcf;
+      margin: 0.4rem 0 1.2rem;
+    }
+
+    .info {
+      text-align: left;
+      font-size: 0.9rem;
+      color: #ccc;
+      margin: 0.5rem 1rem;
+    }
+
+    .info strong {
+      color: #fff;
+    }
+
+    .socials {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1.2rem;
+    }
+
+    .socials a {
+      color: #f1f1f1;
+      text-decoration: none;
+      font-size: 1.2rem;
+      transition: 0.3s;
+    }
+
+    .socials a:hover {
+      color: #aaa;
     }
 
     .btn {
-      display: inline-block;
-      margin-top: 1.5rem;
-      padding: 0.7rem 1.5rem;
-      background: linear-gradient(45deg, #00dbde, #fc00ff);
-      border: none;
+      display: block;
+      margin: 1.5rem auto;
+      padding: 0.6rem 1.5rem;
       border-radius: 25px;
-      color: white;
+      background: #555;
+      color: #fff;
+      border: none;
       text-decoration: none;
+      width: fit-content;
       transition: 0.3s;
     }
 
     .btn:hover {
-      transform: scale(1.1);
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+      background: #777;
+      transform: scale(1.05);
     }
-
-    .bubbles {
-      position: absolute;
-      bottom: -10%;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      z-index: -1;
-    }
-
-    .bubble {
-      position: absolute;
-      bottom: -100px;
-      width: 40px;
-      height: 40px;
-      background: rgba(255, 255, 255, 0.2);
-      border-radius: 50%;
-      animation: rise 10s infinite ease-in;
-    }
-
-    @keyframes rise {
-      0% { transform: translateY(0) scale(1); opacity: 1; }
-      100% { transform: translateY(-1200px) scale(1.5); opacity: 0; }
-    }
-
-    .bubble:nth-child(odd) { width: 60px; height: 60px; animation-duration: 12s; }
   </style>
 </head>
 <body>
-  <div class="bubbles">
-    <div class="bubble" style="left: 10%; animation-delay: 0s;"></div>
-    <div class="bubble" style="left: 30%; animation-delay: 2s;"></div>
-    <div class="bubble" style="left: 50%; animation-delay: 4s;"></div>
-    <div class="bubble" style="left: 70%; animation-delay: 6s;"></div>
-    <div class="bubble" style="left: 90%; animation-delay: 8s;"></div>
+  <div class="profile-card">
+    <div class="profile-header"></div>
+    <img src="https://i.pravatar.cc/100?img=68" alt="Profile" class="profile-image" />
+    <div class="profile-content">
+      <h1>Jade Villarez</h1>
+      <p>Dedicated student passionate about learning, creativity, and academic excellence.</p>
+      <div class="info">
+        <p><strong>School:</strong> Greenfield National High School</p>
+        <p><strong>Grade Level:</strong> 11 - STEM Strand</p>
+        <p><strong>Location:</strong> Laguna, Philippines</p>
+      </div>
+      <div class="socials">
+        <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
+        <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+        <a href="#"><ion-icon name="logo-github"></ion-icon></a>
+      </div>
+      <a href="#" class="btn">View Portfolio</a>
+    </div>
   </div>
 
-  <div class="glass-card">
-    <img src="https://i.pravatar.cc/100" alt="avatar" class="avatar" />
-    <h1>Hello, I’m Random!</h1>
-    <p>A playful HTML design with glassmorphism and floating bubbles ✨</p>
-    <a href="#" class="btn">Explore More</a>
-  </div>
+  <!-- Ionicons (for social media icons) -->
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
